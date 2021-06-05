@@ -9,6 +9,10 @@
 </head>
 <body>
     <div id="container"></div>
-    <script src="app.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.8.3/system.min.js" integrity="sha512-dGQpe9Hb1dXjYT7TSrTS6qnRmzrhY9wsyRtN6BR2R+XgiXf5cpgvWVGPWptrarkfoldzpIkl7adWEddhoKsX6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+    System.defaultJSExtension = true;
+    System.import('./app.js')
+    </script>
 </body>
 </html>
