@@ -1,6 +1,6 @@
 import { Todo } from './models';
 
-let lastId: number = 0;
+let lastId: number = 4;
 
 function generateTodoId() {
     return lastId += 1;

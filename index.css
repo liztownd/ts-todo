@@ -1,0 +1,8 @@
+.completed {
+    text-decoration: overline;
+    font-weight: 100;
+}
+
+li {
+    font-size: larger;
+}

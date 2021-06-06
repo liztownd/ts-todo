@@ -1,9 +1,14 @@
 System.register(["./DataAccess.js"], function (exports_1, context_1) {
     "use strict";
-    var DataAccess_js_1, service, container, todos;
+    var DataAccess_js_1, todos, service;
     var __moduleName = context_1 && context_1.id;
-    function init() {
-        // renderTodos();
+    function renderTodos() {
+        let todoList = document.createElement('ul');
+        for (let i = 0; i < todos.length; i++) {
+            let todoItem = `<li id=${todos[i].id} class="p-2 list-inline"` + (todos[i].state === 2 ? "completed" : "") + `data-value=${todos[i].state}>${todos[i].name}</li>`;
+            $(todoList).append(todoItem);
+        }
+        $('#todoContainer').append(todoList);
     }
     return {
         setters: [
@@ -12,20 +17,44 @@ System.register(["./DataAccess.js"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
+            todos = [
+                {
+                    id: 1,
+                    name: 'Pick up drycleaning',
+                    state: 1,
+                },
+                {
+                    id: 2,
+                    name: 'Save Gotham',
+                    state: 1,
+                },
+                {
+                    id: 3,
+                    name: 'Clean batcave',
+                    state: 1,
+                }
+            ];
+            renderTodos();
             service = new DataAccess_js_1.TodoService([]);
-            container = $('#container');
             $('#add').on('click', function (e) {
                 e.preventDefault();
                 var newTodo = $('input').val();
-                console.log('new todo', newTodo);
                 service.add(newTodo);
-                init();
+                renderTodos();
             });
-            todos = service.getAll();
-            // render todos
-            // todos.forEach(todo => 
-            //     console.log(`${todo.name} [${TodoState[todo.state]}]`));
             // mark completed
+            $('li').on('click', function (e) {
+                e.preventDefault();
+                console.log('click', this.id);
+                let index = todos.findIndex(() => { todos.id === this.id; });
+                if (todos[index].state === 1) {
+                    todos[index].state = 2;
+                }
+                else {
+                    todos[index].state = 1;
+                }
+            });
+            // let todos = service.getAll();
             // clear completed
         }
     };

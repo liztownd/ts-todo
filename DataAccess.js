@@ -12,40 +12,35 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            lastId = 0;
-            TodoService = /** @class */ (function () {
-                function TodoService(todos) {
+            lastId = 4;
+            TodoService = class TodoService {
+                constructor(todos) {
                     this.todos = todos;
                 }
-                Object.defineProperty(TodoService.prototype, "nextId", {
-                    set: function (nextId) {
-                        lastId = nextId - 1;
-                    },
-                    enumerable: false,
-                    configurable: true
-                });
-                TodoService.prototype.add = function (todo) {
+                set nextId(nextId) {
+                    lastId = nextId - 1;
+                }
+                add(todo) {
                     todo.id = generateTodoId();
                     this.todos.push(todo);
                     return todo;
-                };
-                TodoService.prototype.getAll = function () {
+                }
+                getAll() {
                     return clone(this.todos);
-                };
-                TodoService.prototype.getById = function (todoId) {
-                    var filtered = this.todos.filter(function (x) { return x.id === todoId; });
+                }
+                getById(todoId) {
+                    var filtered = this.todos.filter(x => x.id === todoId);
                     if (filtered.length) {
                         return filtered[0];
                     }
                     return null;
-                };
-                TodoService.prototype.delete = function (todoId) {
+                }
+                delete(todoId) {
                     var toDelete = this.getById(todoId);
                     var deletedIndex = this.todos.indexOf(toDelete);
                     this.todos.splice(deletedIndex, 1);
-                };
-                return TodoService;
-            }());
+                }
+            };
             exports_1("TodoService", TodoService);
         }
     };

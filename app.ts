@@ -5,31 +5,62 @@ import * as $ from './node_modules/jquery/dist/jquery.min.js';
 declare var jquery: any;
 declare var $: any;
 
-function init () {
-   // renderTodos();
+let todos = [
+    {
+        id: 1,
+        name: 'Pick up drycleaning',
+        state: 1,
+    },
+    {
+        id: 2,
+        name: 'Save Gotham',
+        state: 1,
+    },
+    {
+        id: 3,
+        name: 'Clean batcave',
+        state: 1,
+    }
+]
+
+renderTodos()
+
+function renderTodos(){
+    let todoList = document.createElement('ul')
+    for (let i=0; i<todos.length; i++){
+        let todoItem = 
+        `<li id=${todos[i].id} class="p-2 list-inline"`+ (todos[i].state === 2 ? "completed" : "") + `data-value=${todos[i].state}>${todos[i].name}</li>`
+        $(todoList).append(todoItem)
+    }
+    $('#todoContainer').append(todoList)
 }
 
+
 let service = new TodoService([]);
-var container = $('#container');
+
 $('#add').on('click', function(e) {
     e.preventDefault();
     var newTodo = $('input').val();
-    console.log('new todo', newTodo) 
     service.add(newTodo);
-    init()
+    renderTodos();
 })
-
-
-let todos = service.getAll();
-
-// render todos
-// todos.forEach(todo => 
-//     console.log(`${todo.name} [${TodoState[todo.state]}]`));
 
 // mark completed
 
+$('li').on('click', function(e) {
+    e.preventDefault();
+    console.log('click', this.id)
+    let index = todos.findIndex(() => {todos.id === this.id })
+    if (todos[index].state === 1) {
+        todos[index].state = 2
+    }
+    else {
+        todos[index].state = 1
+    }
+})
+
+// let todos = service.getAll();
+
+
+
 // clear completed
-
-
-
-
