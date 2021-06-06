@@ -19,7 +19,7 @@ let todos = [
     {
         id: 3,
         name: 'Clean batcave',
-        state: 1,
+        state: 2,
     }
 ]
 
@@ -50,17 +50,15 @@ $('#add').on('click', function(e) {
 $('li').on('click', function(e) {
     e.preventDefault();
     console.log('click', this.id)
-    let index = todos.findIndex(() => {todos.id === this.id })
+    let index = todos.findIndex((t) => {t.id === this.id })
     if (todos[index].state === 1) {
         todos[index].state = 2
     }
     else {
         todos[index].state = 1
     }
+    renderTodos()
 })
-
-// let todos = service.getAll();
-
 
 
 // clear completed

@@ -1,6 +1,6 @@
 .completed {
-    text-decoration: overline;
-    font-weight: 100;
+    text-decoration: line-through;
+    font-weight:100;
 }
 
 li {
