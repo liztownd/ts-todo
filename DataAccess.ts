@@ -6,6 +6,12 @@ function generateTodoId() {
     return lastId += 1;
 }
 
+function clone<T>(value: T): T{
+    var clone = JSON.stringify(value)
+    return JSON.parse(clone);
+
+}
+
 export interface ITodoService {
     add(todo: Todo): Todo,
     delete(todoId: number): void,
@@ -29,8 +35,7 @@ export class TodoService implements ITodoService {
     }
 
     getAll(): Todo[] {
-        var clone = JSON.stringify(this.todos)
-        return JSON.parse(clone);
+        return clone(this.todos)
     }
 
 

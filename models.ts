@@ -5,8 +5,6 @@ export interface Todo {
 }
 
 export enum TodoState {
-    New = 1,
-    Active,
+    Active = 1,
     Complete,
-    Deleted,
 }

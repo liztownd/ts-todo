@@ -5,6 +5,10 @@ System.register([], function (exports_1, context_1) {
     function generateTodoId() {
         return lastId += 1;
     }
+    function clone(value) {
+        var clone = JSON.stringify(value);
+        return JSON.parse(clone);
+    }
     return {
         setters: [],
         execute: function () {
@@ -26,8 +30,7 @@ System.register([], function (exports_1, context_1) {
                     return todo;
                 };
                 TodoService.prototype.getAll = function () {
-                    var clone = JSON.stringify(this.todos);
-                    return JSON.parse(clone);
+                    return clone(this.todos);
                 };
                 TodoService.prototype.getById = function (todoId) {
                     var filtered = this.todos.filter(function (x) { return x.id === todoId; });

@@ -42,8 +42,7 @@ System.register(["./models"], function (exports_1, context_1) {
                     return _super.call(this, models_1.TodoState.Complete) || this;
                 }
                 CompleteTodoStateChanger.prototype.canChangeState = function (todo) {
-                    return !!todo && (todo.state === models_1.TodoState.Active
-                        || todo.state === models_1.TodoState.Deleted);
+                    return !!todo && (todo.state === models_1.TodoState.Active);
                 };
                 return CompleteTodoStateChanger;
             }(TodoStateChanger));

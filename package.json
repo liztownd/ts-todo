@@ -1,0 +1,27 @@
+{
+  "name": "ts-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "DataAccess.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liztownd/ts-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liztownd/ts-todo/issues"
+  },
+  "homepage": "https://github.com/liztownd/ts-todo#readme",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "typings": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.5"
+  }
+}
