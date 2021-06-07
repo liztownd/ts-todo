@@ -29,7 +29,7 @@ function renderTodos(){
     let todoList = document.createElement('ul')
     for (let i=0; i<todos.length; i++){
         let todoItem = 
-        `<li id=${todos[i].id} class="p-2 list-inline"`+ (todos[i].state === 2 ? "completed" : "") + `data-value=${todos[i].state}>${todos[i].name}</li>`
+        `<li id=${todos[i].id} class="p-2 list-inline`+ (todos[i].state === 2 ? "completed" : "") + `" data-value=${todos[i].state}>${todos[i].name}</li>`
         $(todoList).append(todoItem)
     }
     $('#todoContainer').append(todoList)
